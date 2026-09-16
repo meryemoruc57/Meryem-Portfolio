@@ -1,0 +1,2099 @@
+```html
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Meryem Oruç | Software Developer</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:Inter,sans-serif;
+    background:#05070d;
+    color:#f5f7ff;
+    overflow-x:hidden;
+}
+
+body::selection{
+    background:#4da3ff;
+    color:white;
+}
+
+a{
+    color:inherit;
+    text-decoration:none;
+}
+
+button{
+    font-family:inherit;
+}
+
+/* ================= BACKGROUND ================= */
+
+.background{
+    position:fixed;
+    inset:0;
+    z-index:-10;
+    overflow:hidden;
+    pointer-events:none;
+}
+
+.grid{
+    position:absolute;
+    inset:0;
+    opacity:.12;
+
+    background-image:
+        linear-gradient(rgba(255,255,255,.06) 1px,transparent 1px),
+        linear-gradient(90deg,rgba(255,255,255,.06) 1px,transparent 1px);
+
+    background-size:60px 60px;
+
+    mask-image:linear-gradient(to bottom,black,transparent 90%);
+}
+
+.glow{
+    position:absolute;
+    width:600px;
+    height:600px;
+    border-radius:50%;
+    filter:blur(120px);
+    opacity:.16;
+}
+
+.glow.one{
+    background:#1683ff;
+    top:-300px;
+    left:-250px;
+}
+
+.glow.two{
+    background:#763cff;
+    right:-300px;
+    top:30%;
+}
+
+.glow.three{
+    background:#00d9ff;
+    bottom:-350px;
+    left:30%;
+}
+
+/* ================= NAVBAR ================= */
+
+header{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    z-index:1000;
+
+    background:rgba(5,7,13,.68);
+    backdrop-filter:blur(20px);
+
+    border-bottom:1px solid rgba(255,255,255,.06);
+}
+
+nav{
+    width:min(1180px,92%);
+    height:76px;
+    margin:auto;
+
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+}
+
+.logo{
+    font-family:"Space Grotesk";
+    font-size:24px;
+    font-weight:700;
+}
+
+.logo span{
+    color:#4da3ff;
+}
+
+.nav-links{
+    list-style:none;
+    display:flex;
+    align-items:center;
+    gap:30px;
+}
+
+.nav-links a{
+    color:#929bad;
+    font-size:13px;
+    transition:.3s;
+}
+
+.nav-links a:hover{
+    color:white;
+}
+
+.nav-contact{
+    padding:11px 17px;
+    border:1px solid rgba(77,163,255,.4);
+    border-radius:11px;
+    background:rgba(77,163,255,.08);
+    color:white!important;
+}
+
+.menu{
+    display:none;
+    font-size:25px;
+    cursor:pointer;
+}
+
+/* ================= GENERAL ================= */
+
+.container{
+    width:min(1180px,92%);
+    margin:auto;
+}
+
+section{
+    padding:120px 0;
+}
+
+.section-label{
+    color:#4da3ff;
+    font-size:11px;
+    font-weight:700;
+    letter-spacing:3px;
+    text-transform:uppercase;
+    margin-bottom:15px;
+}
+
+.section-title{
+    font-family:"Space Grotesk";
+    font-size:clamp(42px,6vw,70px);
+    letter-spacing:-3px;
+    line-height:.95;
+    margin-bottom:55px;
+}
+
+.section-title span{
+    color:#697285;
+}
+
+/* ================= HERO ================= */
+
+#home{
+    min-height:100vh;
+    display:flex;
+    align-items:center;
+    padding-top:110px;
+}
+
+.hero{
+    display:grid;
+    grid-template-columns:1.1fr .9fr;
+    gap:80px;
+    align-items:center;
+}
+
+.status-line{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    color:#929bad;
+    font-size:13px;
+    margin-bottom:25px;
+}
+
+.status{
+    width:8px;
+    height:8px;
+    border-radius:50%;
+    background:#4dff9a;
+    box-shadow:0 0 15px #4dff9a;
+}
+
+.hero h1{
+    font-family:"Space Grotesk";
+    font-size:clamp(60px,8vw,105px);
+    line-height:.86;
+    letter-spacing:-6px;
+    margin-bottom:30px;
+}
+
+.blue{
+    color:#4da3ff;
+}
+
+.outline{
+    color:transparent;
+    -webkit-text-stroke:1px rgba(255,255,255,.4);
+}
+
+.typing{
+    min-height:30px;
+    color:#a2aabd;
+    font-size:19px;
+    margin-bottom:35px;
+}
+
+.cursor{
+    color:#4da3ff;
+    animation:blink .7s infinite;
+}
+
+@keyframes blink{
+    50%{opacity:0}
+}
+
+.buttons{
+    display:flex;
+    flex-wrap:wrap;
+    gap:12px;
+}
+
+.btn{
+    display:inline-flex;
+    padding:14px 21px;
+    border-radius:12px;
+    font-size:13px;
+    font-weight:600;
+    transition:.3s;
+}
+
+.btn-primary{
+    background:#4da3ff;
+    color:#04101e;
+}
+
+.btn-primary:hover{
+    transform:translateY(-4px);
+    box-shadow:0 15px 35px rgba(77,163,255,.25);
+}
+
+.btn-secondary{
+    border:1px solid rgba(255,255,255,.1);
+    background:rgba(255,255,255,.035);
+}
+
+.btn-secondary:hover{
+    transform:translateY(-4px);
+    border-color:#4da3ff;
+}
+
+/* ================= CODE WINDOW ================= */
+
+.code-card{
+    min-height:420px;
+    padding:25px;
+
+    border-radius:25px;
+
+    border:1px solid rgba(255,255,255,.09);
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,.08),
+            rgba(255,255,255,.02)
+        );
+
+    backdrop-filter:blur(25px);
+
+    box-shadow:
+        0 30px 100px rgba(0,0,0,.45);
+
+    transform:perspective(1000px) rotateY(-5deg);
+    transition:.5s;
+}
+
+.code-card:hover{
+    transform:perspective(1000px) rotateY(0) translateY(-8px);
+}
+
+.window-bar{
+    display:flex;
+    gap:7px;
+    margin-bottom:25px;
+}
+
+.window-dot{
+    width:10px;
+    height:10px;
+    border-radius:50%;
+    background:#5e687b;
+}
+
+.code{
+    font-family:monospace;
+    color:#b7c0d2;
+    font-size:14px;
+    line-height:2;
+}
+
+.c-blue{color:#4da3ff}
+.c-purple{color:#b98cff}
+.c-green{color:#59eaa0}
+.c-gray{color:#667084}
+
+.floating{
+    position:absolute;
+    padding:13px 16px;
+
+    border:1px solid rgba(255,255,255,.1);
+    border-radius:13px;
+
+    background:rgba(10,14,23,.8);
+    backdrop-filter:blur(15px);
+
+    color:#aab2c3;
+    font-size:11px;
+
+    animation:float 4s ease-in-out infinite;
+}
+
+.code-wrapper{
+    position:relative;
+}
+
+.float-one{
+    top:-20px;
+    right:-20px;
+}
+
+.float-two{
+    bottom:-20px;
+    left:-20px;
+    animation-delay:1s;
+}
+
+@keyframes float{
+    50%{transform:translateY(-12px)}
+}
+
+/* ================= ABOUT ================= */
+
+.about-grid{
+    display:grid;
+    grid-template-columns:.7fr 1.3fr;
+    gap:80px;
+}
+
+.about-number{
+    font-family:"Space Grotesk";
+    font-size:150px;
+    line-height:.8;
+    color:transparent;
+    -webkit-text-stroke:1px rgba(77,163,255,.3);
+}
+
+.about-text{
+    color:#a4acbd;
+    font-size:17px;
+    line-height:1.9;
+    max-width:700px;
+}
+
+.about-text strong{
+    color:white;
+}
+
+/* ================= SKILLS ================= */
+
+.skills{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:14px;
+}
+
+.skill{
+    padding:24px;
+
+    min-height:130px;
+
+    border:1px solid rgba(255,255,255,.07);
+    border-radius:17px;
+
+    background:rgba(255,255,255,.025);
+
+    transition:.35s;
+}
+
+.skill:hover{
+    transform:translateY(-7px);
+    border-color:rgba(77,163,255,.4);
+    background:rgba(77,163,255,.05);
+}
+
+.skill-icon{
+    color:#4da3ff;
+    font-family:"Space Grotesk";
+    font-weight:700;
+    font-size:18px;
+    margin-bottom:15px;
+}
+
+.skill h3{
+    font-size:14px;
+    margin-bottom:6px;
+}
+
+.skill p{
+    font-size:11px;
+    color:#70798c;
+}
+
+/* ================= PROJECTS ================= */
+
+.projects{
+    display:flex;
+    flex-direction:column;
+    gap:30px;
+}
+
+.project{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+
+    min-height:450px;
+
+    overflow:hidden;
+
+    border-radius:27px;
+
+    border:1px solid rgba(255,255,255,.08);
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(255,255,255,.055),
+            rgba(255,255,255,.018)
+        );
+
+    transition:.4s;
+}
+
+.project:hover{
+    transform:translateY(-7px);
+    border-color:rgba(77,163,255,.35);
+    box-shadow:0 25px 80px rgba(0,0,0,.3);
+}
+
+/* ================= MEDIA AREA ================= */
+
+.project-media{
+    position:relative;
+    min-height:450px;
+    overflow:hidden;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(77,163,255,.17),
+            transparent 60%
+        ),
+        #080c15;
+}
+
+/* FOTOĞRAF ALANI */
+
+.project-media img{
+    position:absolute;
+    inset:0;
+
+    width:100%;
+    height:100%;
+
+    object-fit:cover;
+
+    opacity:0;
+
+    transition:.5s;
+}
+
+/*
+=========================================================
+FOTOĞRAF EKLEME
+
+Örnek:
+
+<img src="fluentlift.jpg">
+
+Fotoğraf koyduğunda aşağıdaki alan otomatik gizlenir.
+=========================================================
+*/
+
+.project-media img[src]{
+    opacity:1;
+}
+
+/* Fotoğraf yoksa placeholder görünür */
+
+.project-media img[src=""]{
+    opacity:0;
+}
+
+.media-placeholder{
+    text-align:center;
+    transition:.4s;
+}
+
+.project-media:has(img[src]:not([src=""])) .media-placeholder{
+    opacity:0;
+}
+
+.project-number{
+    display:block;
+
+    font-family:"Space Grotesk";
+
+    font-size:130px;
+    font-weight:700;
+
+    color:transparent;
+
+    -webkit-text-stroke:
+        1px rgba(255,255,255,.12);
+}
+
+.project-label{
+    color:#687286;
+    font-size:10px;
+    letter-spacing:4px;
+}
+
+/* ================= VIDEO ================= */
+
+.project-video{
+    position:absolute;
+    inset:0;
+
+    width:100%;
+    height:100%;
+
+    object-fit:cover;
+
+    display:none;
+
+    z-index:5;
+}
+
+.project-media.video-active .project-video{
+    display:block;
+}
+
+/* ================= PROJECT INFO ================= */
+
+.project-info{
+    padding:55px;
+
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+}
+
+.project-tech{
+    color:#4da3ff;
+    font-size:10px;
+    font-weight:700;
+    letter-spacing:2px;
+    margin-bottom:14px;
+}
+
+.project-info h3{
+    font-family:"Space Grotesk";
+    font-size:40px;
+    letter-spacing:-1.5px;
+    margin-bottom:18px;
+}
+
+.project-info p{
+    color:#8992a5;
+    font-size:14px;
+    line-height:1.8;
+    margin-bottom:28px;
+}
+
+.project-buttons{
+    display:flex;
+    gap:9px;
+    flex-wrap:wrap;
+}
+
+.project-btn{
+    padding:11px 15px;
+
+    border:1px solid rgba(255,255,255,.1);
+    border-radius:10px;
+
+    background:rgba(255,255,255,.035);
+
+    font-size:11px;
+    font-weight:600;
+
+    transition:.3s;
+}
+
+.project-btn:hover{
+    background:#4da3ff;
+    color:#06101c;
+    border-color:#4da3ff;
+}
+
+/* ================= EDUCATION ================= */
+
+.timeline{
+    position:relative;
+    max-width:850px;
+}
+
+.timeline::before{
+    content:"";
+    position:absolute;
+    left:6px;
+    top:0;
+    bottom:0;
+    width:1px;
+    background:rgba(255,255,255,.12);
+}
+
+.timeline-item{
+    position:relative;
+    padding-left:42px;
+    margin-bottom:50px;
+}
+
+.timeline-dot{
+    position:absolute;
+    left:0;
+    top:8px;
+
+    width:13px;
+    height:13px;
+
+    border-radius:50%;
+
+    background:#4da3ff;
+    box-shadow:0 0 20px rgba(77,163,255,.7);
+}
+
+.timeline-year{
+    color:#4da3ff;
+    font-size:11px;
+    letter-spacing:2px;
+    margin-bottom:8px;
+}
+
+.timeline h3{
+    font-family:"Space Grotesk";
+    font-size:25px;
+    margin-bottom:5px;
+}
+
+.timeline p{
+    color:#80899b;
+    font-size:14px;
+}
+
+/* ================= CONTACT ================= */
+
+.contact-box{
+    padding:70px;
+
+    border-radius:30px;
+
+    border:1px solid rgba(77,163,255,.2);
+
+    background:
+        radial-gradient(
+            circle at 80% 20%,
+            rgba(77,163,255,.14),
+            transparent 40%
+        ),
+        rgba(255,255,255,.025);
+}
+
+.contact-box h2{
+    font-family:"Space Grotesk";
+    font-size:clamp(42px,6vw,75px);
+    line-height:.95;
+    letter-spacing:-3px;
+    margin-bottom:25px;
+}
+
+.contact-box h2 span{
+    color:#4da3ff;
+}
+
+.contact-box p{
+    color:#8d96a8;
+    max-width:520px;
+    margin-bottom:30px;
+}
+
+.socials{
+    display:flex;
+    flex-wrap:wrap;
+    gap:10px;
+}
+
+.social{
+    padding:12px 17px;
+
+    border:1px solid rgba(255,255,255,.1);
+    border-radius:11px;
+
+    background:rgba(255,255,255,.035);
+
+    font-size:12px;
+
+    transition:.3s;
+}
+
+.social:hover{
+    transform:translateY(-3px);
+    border-color:#4da3ff;
+}
+
+/* ================= FOOTER ================= */
+
+footer{
+    padding:35px 0;
+
+    border-top:1px solid rgba(255,255,255,.06);
+
+    color:#687286;
+    font-size:11px;
+}
+
+.footer{
+    display:flex;
+    justify-content:space-between;
+}
+
+/* ================= REVEAL ================= */
+
+.reveal{
+    opacity:0;
+    transform:translateY(35px);
+    transition:1s ease;
+}
+
+.reveal.active{
+    opacity:1;
+    transform:translateY(0);
+}
+
+/* ================= RESPONSIVE ================= */
+
+@media(max-width:900px){
+
+    .hero{
+        grid-template-columns:1fr;
+    }
+
+    .about-grid{
+        grid-template-columns:1fr;
+        gap:30px;
+    }
+
+    .skills{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .project{
+        grid-template-columns:1fr;
+    }
+
+}
+
+@media(max-width:700px){
+
+    .menu{
+        display:block;
+    }
+
+    .nav-links{
+        position:absolute;
+        top:76px;
+        left:0;
+
+        width:100%;
+
+        display:none;
+        flex-direction:column;
+
+        padding:15px;
+
+        background:rgba(5,7,13,.97);
+
+        gap:5px;
+    }
+
+    .nav-links.active{
+        display:flex;
+    }
+
+    .nav-links li{
+        width:100%;
+    }
+
+    .nav-links a{
+        display:block;
+        padding:12px;
+    }
+
+    .nav-contact{
+        text-align:center;
+    }
+
+    section{
+        padding:90px 0;
+    }
+
+    .hero h1{
+        letter-spacing:-4px;
+    }
+
+    .skills{
+        grid-template-columns:1fr 1fr;
+    }
+
+    .project-media{
+        min-height:300px;
+    }
+
+    .project-info{
+        padding:30px;
+    }
+
+    .contact-box{
+        padding:35px 25px;
+    }
+
+    .footer{
+        flex-direction:column;
+        gap:10px;
+    }
+
+}
+
+@media(max-width:450px){
+
+    .skills{
+        grid-template-columns:1fr;
+    }
+
+    .hero h1{
+        font-size:55px;
+    }
+
+    .floating{
+        display:none;
+    }
+
+}
+
+</style>
+</head>
+
+
+<body>
+
+
+<!-- ================= BACKGROUND ================= -->
+
+<div class="background">
+
+    <div class="grid"></div>
+
+    <div class="glow one"></div>
+
+    <div class="glow two"></div>
+
+    <div class="glow three"></div>
+
+</div>
+
+
+<!-- ================= NAVBAR ================= -->
+
+<header>
+<nav>
+
+    <a href="#home" class="logo">
+        Meryem<span>.</span>
+    </a>
+
+    <div class="menu" id="menu">
+        ☰
+    </div>
+    <ul class="nav-links" id="navLinks">
+
+        <li>
+            <a href="#home">Ana Sayfa</a>
+        </li>
+
+        <li>
+            <a href="#about">Hakkımda</a>
+        </li>
+
+        <li>
+            <a href="#skills">Yetenekler</a>
+        </li>
+
+        <li>
+            <a href="#projects">Projeler</a>
+        </li>
+
+        <li>
+            <a href="#education">Eğitim</a>
+        </li>
+
+        <li>
+            <a href="#contact" class="nav-contact">
+                İletişim ↗
+            </a>
+        </li>
+
+    </ul>
+
+</nav>
+</header>
+<main>
+
+
+<!-- ================= HERO ================= -->
+
+<section id="home">
+
+<div class="container hero">
+
+<div class="reveal">
+
+    <div class="status-line">
+        <span class="status"></span>
+        Available for opportunities
+
+    </div>
+
+    <h1>
+
+        MERYEM<br>
+        <span class="blue">
+            ORUÇ
+        </span><br>
+        <span class="outline">
+            DEVELOPER.
+        </span>
+
+    </h1>
+
+
+    <div class="typing">
+        <span id="typing"></span>
+        <span class="cursor">
+            |
+        </span>
+    </div>
+
+
+    <div class="buttons">
+        <a
+            href="#projects"
+            class="btn btn-primary">
+            Projelerimi Gör ↓
+        </a>
+
+
+        <a
+            href="https://github.com/meryemoruc57"
+            target="_blank"
+            class="btn btn-secondary">
+            GitHub ↗
+        </a>
+
+    </div>
+
+</div>
+
+
+<!-- CODE CARD -->
+
+<div class="code-wrapper reveal">
+    <div class="floating float-one">
+        ✦ Creative Developer
+    </div>
+
+    <div class="code-card">
+        <div class="window-bar">
+            <span class="window-dot"></span>
+            <span class="window-dot"></span>
+            <span class="window-dot"></span>
+        </div>
+
+
+        <div class="code">
+
+            <div>
+                <span class="c-purple">const</span>
+                developer =
+                <span class="c-blue">"Meryem"</span>;
+            </div>
+
+            <br>
+
+            <div>
+                <span class="c-purple">const</span>
+                skills = [
+            </div>
+
+            <div>
+                &nbsp;&nbsp;
+                <span class="c-green">
+                    "JavaScript"
+                </span>,
+            </div>
+
+            <div>
+                &nbsp;&nbsp;
+                <span class="c-green">
+                    "Python"
+                </span>,
+            </div>
+
+            <div>
+                &nbsp;&nbsp;
+                <span class="c-green">
+                    "C#"
+                </span>,
+            </div>
+
+            <div>
+                &nbsp;&nbsp;
+                <span class="c-green">
+                    "PHP"
+                </span>,
+            </div>
+
+            <div>
+                &nbsp;&nbsp;
+                <span class="c-green">
+                    "Unity 3D"
+                </span>
+            </div>
+
+            <div>];</div>
+
+            <br>
+
+            <div>
+
+                <span class="c-blue">
+                    function
+                </span>
+
+                <span class="c-purple">
+                    create
+                </span>() {
+
+            </div>
+
+            <div>
+                &nbsp;&nbsp;
+                <span class="c-gray">
+                    // ideas → code
+                </span>
+            </div>
+
+            <div>
+                &nbsp;&nbsp;
+                <span class="c-blue">
+                    return
+                </span>
+
+                <span class="c-green">
+                    "Let's build!"
+                </span>;
+
+            </div>
+
+            <div>}</div>
+
+            <br>
+
+            <div>
+                create<span class="c-blue">()</span>;
+            </div>
+
+        </div>
+
+
+    </div>
+
+
+    <div class="floating float-two">
+
+        &lt;/&gt; turning ideas into code
+
+    </div>
+
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ================= ABOUT ================= -->
+
+<section id="about">
+
+<div class="container">
+
+
+    <div class="section-label reveal">
+        01 / ABOUT
+    </div>
+
+
+    <h2 class="section-title reveal">
+
+        Hakkımda<span>.</span>
+
+    </h2>
+
+
+    <div class="about-grid">
+
+
+        <div class="about-number reveal">
+            01
+        </div>
+
+
+        <div class="about-text reveal">
+
+            <p>
+
+                Yazılım geliştirme ve oyun programlama
+                alanında kendimi geliştiren bir geliştiriciyim.
+
+            </p>
+
+            <br>
+
+            <p>
+
+                <strong>
+                    JavaScript, Python, C#, Java ve PHP
+                </strong>
+
+                teknolojileriyle çalışıyor; HTML5,
+                CSS3 ve
+
+                <strong>
+                    Unity 3D
+                </strong>
+
+                kullanarak projeler geliştiriyorum.
+
+            </p>
+
+            <br>
+
+            <p>
+
+                Responsive tasarım, mobil uyumlu arayüzler
+                ve temel UI/UX prensiplerine ilgi duyuyor,
+                yeni teknolojileri öğrenerek yeteneklerimi
+                sürekli geliştirmeyi hedefliyorum.
+
+            </p>
+
+        </div>
+
+
+    </div>
+
+</div>
+
+</section>
+
+
+<!-- ================= SKILLS ================= -->
+
+<section id="skills">
+
+<div class="container">
+
+
+    <div class="section-label reveal">
+        02 / SKILLS
+    </div>
+
+
+    <h2 class="section-title reveal">
+
+        Tech <span>Stack.</span>
+
+    </h2>
+
+
+    <div class="skills">
+
+
+        <div class="skill reveal">
+
+            <div class="skill-icon">
+                JS
+            </div>
+
+            <h3>
+                JavaScript
+            </h3>
+
+            <p>
+                Web Development
+            </p>
+
+        </div>
+
+
+        <div class="skill reveal">
+
+            <div class="skill-icon">
+                PY
+            </div>
+
+            <h3>
+                Python
+            </h3>
+
+            <p>
+                Programming
+            </p>
+
+        </div>
+
+
+        <div class="skill reveal">
+
+            <div class="skill-icon">
+                C#
+            </div>
+
+            <h3>
+                C#
+            </h3>
+
+            <p>
+                Game Development
+            </p>
+
+        </div>
+
+
+        <div class="skill reveal">
+
+            <div class="skill-icon">
+                PHP
+            </div>
+
+            <h3>
+                PHP
+            </h3>
+
+            <p>
+                Web Development
+            </p>
+
+        </div>
+
+
+        <div class="skill reveal">
+
+            <div class="skill-icon">
+                &lt;/&gt;
+            </div>
+
+            <h3>
+                HTML5 / CSS3
+            </h3>
+
+            <p>
+                Modern Interfaces
+            </p>
+
+        </div>
+
+
+        <div class="skill reveal">
+
+            <div class="skill-icon">
+                U3D
+            </div>
+
+            <h3>
+                Unity 3D
+            </h3>
+
+            <p>
+                Game Development
+            </p>
+
+        </div>
+
+
+        <div class="skill reveal">
+
+            <div class="skill-icon">
+                GH
+            </div>
+
+            <h3>
+                GitHub
+            </h3>
+
+            <p>
+                Version Control
+            </p>
+
+        </div>
+
+
+        <div class="skill reveal">
+
+            <div class="skill-icon">
+                UX
+            </div>
+
+            <h3>
+                UI / UX
+            </h3>
+
+            <p>
+                Basic Knowledge
+            </p>
+
+        </div>
+
+
+        <div class="skill reveal">
+
+            <div class="skill-icon">
+                PS
+            </div>
+
+            <h3>
+                Photoshop CS6
+            </h3>
+
+            <p>
+                Visual Editing
+            </p>
+
+        </div>
+
+
+        <div class="skill reveal">
+
+            <div class="skill-icon">
+                AI
+            </div>
+
+            <h3>
+                Adobe Illustrator
+            </h3>
+
+            <p>
+                Visual Design
+            </p>
+
+        </div>
+
+
+        <div class="skill reveal">
+
+            <div class="skill-icon">
+                WP
+            </div>
+
+            <h3>
+                WordPress
+            </h3>
+
+            <p>
+                Website Development
+            </p>
+
+        </div>
+
+
+        <div class="skill reveal">
+
+            <div class="skill-icon">
+                X
+            </div>
+
+            <h3>
+                XAMPP
+            </h3>
+
+            <p>
+                Local Development
+            </p>
+
+        </div>
+
+
+    </div>
+
+</div>
+
+</section>
+
+
+<!-- ================= PROJECTS ================= -->
+
+<section id="projects">
+
+<div class="container">
+
+
+    <div class="section-label reveal">
+        03 / PROJECTS
+    </div>
+
+
+    <h2 class="section-title reveal">
+
+        Seçilmiş <span>Projeler.</span>
+
+    </h2>
+
+
+    <div class="projects">
+
+
+        <!-- =========================================
+             FLUENTLIFT
+        ========================================== -->
+
+        <article class="project reveal">
+
+
+            <div class="project-media" id="media1">
+
+
+                <!-- FOTOĞRAF BURAYA -->
+
+                <img
+                    src="fluentlift.jfif"
+                    alt="FluentLift proje görüntüsü"
+                    id="image1"
+                >
+
+                <video
+                    class="project-video"
+                    id="video1"
+                    controls
+                    muted
+                    loop
+                    playsinline
+                    poster="">
+
+                    <source
+                        src="fluentlift.mp4"
+                        type="video/mp4">
+                    
+
+                </video>
+
+
+                <div class="media-placeholder">
+
+                    <span class="project-number">
+                        01
+                    </span>
+
+                    <span class="project-label">
+                        PROJECT PREVIEW
+                    </span>
+
+                </div>
+
+
+            </div>
+
+
+            <div class="project-info">
+
+
+                <div class="project-tech">
+
+                    PHP · JAVASCRIPT · HTML5 · CSS3
+
+                </div>
+
+
+                <h3>
+                    FluentLift
+                </h3>
+
+
+                <p>
+
+                    İngilizce öğrenme web sitesi projesinde
+                    ana sayfa ve navbar tasarımını geliştirerek
+                    kullanıcı dostu ve mobil uyumlu bir arayüz
+                    oluşturdum.
+
+                    *Grup Projesidir.
+
+                </p>
+
+
+
+            </div>
+
+
+        </article>
+
+
+        <!-- =========================================
+             KALEDEN KAÇIŞ
+        ========================================== -->
+
+        <article class="project reveal">
+
+
+            <div class="project-media" id="media2">
+
+
+                <img
+                    src="kaleden-kacis.jfif"
+                    alt="Kaleden Kaçış proje görüntüsü"
+                    id="image2"
+                >
+
+
+                <video
+                    class="project-video"
+                    id="video2"
+                    controls
+                    muted
+                    loop
+                    playsinline>
+
+                    
+
+                    VİDEO:
+
+                    <source
+                        src="KALEDEN KAÇIŞ - Trim.mp4"
+                        type="video/mp4">
+
+                    
+
+                </video>
+
+
+                <div class="media-placeholder">
+
+                    <span class="project-number">
+                        02
+                    </span>
+
+                    <span class="project-label">
+                        UNITY 3D PROJECT
+                    </span>
+
+                </div>
+
+
+            </div>
+
+
+            <div class="project-info">
+
+
+                <div class="project-tech">
+
+                    UNITY 3D · C#
+
+                </div>
+
+
+                <h3>
+                    Kaleden Kaçış
+                </h3>
+
+
+                <p>
+
+                    Oyun mekaniklerinin kodlanması,
+                    menü tasarımı ve oda tasarımlarının
+                    geliştirilmesinde görev aldım. <br>
+
+                     *Grup Projesidir.
+
+
+                </p>
+
+
+            </div>
+
+
+        </article>
+
+
+        <!-- =========================================
+             SKINCARE
+        ========================================== -->
+
+        <article class="project reveal">
+
+
+            <div class="project-media" id="media3">
+
+
+                <img
+                    src="skincare.jfif"
+                    alt="SkinCare proje görüntüsü"
+                    id="image3"
+                >
+
+                <video
+                    class="project-video"
+                    id="video3"
+                    controls
+                    muted
+                    loop
+                    playsinline>
+
+                    <source
+                        src="skincare.mp4"
+                        type="video/mp4">
+                </video>
+
+
+                <div class="media-placeholder">
+
+                    <span class="project-number">
+                        03
+                    </span>
+
+                    <span class="project-label">
+                        WEB PROJECT
+                    </span>
+
+                </div>
+
+
+            </div>
+
+
+            <div class="project-info">
+
+
+                <div class="project-tech">
+
+                    WORDPRESS · WEB DESIGN
+
+                </div>
+
+
+                <h3>
+                    SkinCare
+                </h3>
+
+
+                <p>
+
+                    WordPress kullanarak cilt bakım web
+                    sitesini baştan sona geliştirdim.
+                    Eklenti entegrasyonları ve temel kod
+                    özelleştirmeleri gerçekleştirdim.
+
+                </p>
+
+            </div>
+
+
+        </article>
+
+
+    </div>
+
+</div>
+
+</section>
+
+
+<!-- ================= EDUCATION ================= -->
+
+<section id="education">
+
+<div class="container">
+
+
+    <div class="section-label reveal">
+        04 / EDUCATION
+    </div>
+
+
+    <h2 class="section-title reveal">
+
+        Eğitim<span>.</span>
+
+    </h2>
+
+
+    <div class="timeline">
+
+
+        <div class="timeline-item reveal">
+
+            <span class="timeline-dot"></span>
+
+            <div class="timeline-year">
+                2024 — 2026
+            </div>
+
+            <h3>
+                İstanbul Gelişim Üniversitesi
+            </h3>
+
+            <p>
+                Web Tasarımı ve Kodlama
+            </p>
+
+        </div>
+
+
+        <div class="timeline-item reveal">
+
+            <span class="timeline-dot"></span>
+
+            <div class="timeline-year">
+                2019 — 2022
+            </div>
+
+            <h3>
+                Şeyh Edebali Anadolu Lisesi
+            </h3>
+
+            <p>
+                Sayısal Ağırlıklı
+            </p>
+
+        </div>
+
+
+    </div>
+
+</div>
+
+</section>
+
+
+<!-- ================= CONTACT ================= -->
+
+<section id="contact">
+
+<div class="container">
+
+
+    <div class="contact-box reveal">
+
+
+        <div class="section-label">
+            05 / CONTACT
+        </div>
+
+
+
+<h2>
+    Yeni bir fırsat mı?<br>
+
+    <span>
+        Let's work together.
+    </span>
+</h2>
+
+<p>
+    Yeni bir iş fırsatı arıyorum. 
+    Yeteneklerim ve deneyimlerimle ekibinize katkı sağlayabileceğim 
+    pozisyonlar için benimle iletişime geçebilirsiniz.
+</p>
+
+        <div class="socials">
+
+            <a
+                href="https://github.com/meryemoruc57"
+                target="_blank"
+                class="social">
+
+                GitHub ↗
+
+            </a>
+            <a
+                href="https://www.linkedin.com/in/meryem-oruç"
+                target="_blank"
+                class="social">
+
+                LinkedIn ↗
+            </a>
+
+        </div>
+
+    </div>
+
+</div>
+
+</section>
+
+
+</main>
+<!-- ================= FOOTER ================= -->
+<footer>
+
+<div class="container footer">
+
+    <span>
+        © <span id="year"></span> Meryem Oruç
+    </span>
+
+    <span>
+        Designed & Built with Code ✦
+    </span>
+
+</div>
+
+</footer>
+<script>
+
+/* ================= TYPING ================= */
+
+const words = [
+    "Software Developer",
+    "Game Developer",
+    "Web Developer",
+    "Creative Coder"
+];
+
+const typing = document.getElementById("typing");
+
+let word = 0;
+let char = 0;
+let deleting = false;
+
+function type(){
+
+    const current = words[word];
+
+    if(!deleting){
+
+        typing.textContent =
+            current.substring(0,char + 1);
+
+        char++;
+
+        if(char === current.length){
+
+            deleting = true;
+
+            setTimeout(type,1500);
+
+            return;
+        }
+
+    }else{
+
+        typing.textContent =
+            current.substring(0,char - 1);
+
+        char--;
+
+        if(char === 0){
+
+            deleting = false;
+
+            word =
+                (word + 1) % words.length;
+        }
+    }
+
+    setTimeout(
+        type,
+        deleting ? 45 : 85
+    );
+}
+
+type();
+
+
+/* ================= MOBILE MENU ================= */
+
+const menu =
+    document.getElementById("menu");
+
+const navLinks =
+    document.getElementById("navLinks");
+
+menu.addEventListener("click",()=>{
+
+    navLinks.classList.toggle("active");
+
+    menu.textContent =
+        navLinks.classList.contains("active")
+        ? "✕"
+        : "☰";
+
+});
+
+
+document
+.querySelectorAll(".nav-links a")
+.forEach(link=>{
+
+    link.addEventListener("click",()=>{
+
+        navLinks.classList.remove("active");
+
+        menu.textContent="☰";
+
+    });
+
+});
+
+
+/* ================= SCROLL REVEAL ================= */
+
+const observer =
+    new IntersectionObserver(
+        entries=>{
+
+            entries.forEach(entry=>{
+
+                if(entry.isIntersecting){
+
+                    entry.target
+                    .classList
+                    .add("active");
+
+                }
+
+            });
+
+        },
+        {
+            threshold:.12
+        }
+    );
+
+
+document
+.querySelectorAll(".reveal")
+.forEach(element=>{
+
+    observer.observe(element);
+
+});
+
+
+/* ================= YEAR ================= */
+
+document.getElementById("year")
+.textContent =
+    new Date().getFullYear();
+
+
+/* ================= 3D MOUSE EFFECT ================= */
+
+const codeCard =
+    document.querySelector(".code-card");
+
+document.addEventListener(
+    "mousemove",
+    event=>{
+
+        if(window.innerWidth < 900)
+            return;
+
+        const x =
+            (window.innerWidth / 2 -
+            event.clientX) / 80;
+
+        const y =
+            (window.innerHeight / 2 -
+            event.clientY) / 80;
+
+        codeCard.style.transform =
+            `perspective(1000px)
+             rotateY(${x}deg)
+             rotateX(${y}deg)`;
+
+    }
+);
+
+document
+.querySelectorAll(".project-media")
+.forEach(media=>{
+
+    const video =
+        media.querySelector(".project-video");
+
+    if(!video) return;
+
+    media.addEventListener("mouseenter",()=>{
+
+        if(video.querySelector("source")){
+
+            media.classList.add("video-active");
+
+            video.play().catch(()=>{});
+
+        }
+
+    });
+
+
+    media.addEventListener("mouseleave",()=>{
+
+        if(video.querySelector("source")){
+
+            video.pause();
+
+            video.currentTime = 0;
+
+            media.classList.remove("video-active");
+
+        }
+
+    });
+
+});
+</script>
+</body>
+</html>
